@@ -87,9 +87,11 @@ class ProductControllerProvider implements ControllerProviderInterface
         $controllers->delete('/{id}', function ($id) use ($app) {
             $em = $app['db.orm.em'];
             $product = $em->getRepository('Mahourt\Entity\Product')->find($id);
-            $em->remove($product);
 
-            return $app->redirect($app['url_generator']->generate('product_lsit'));
+            $em->remove($product);
+            $em->flush();
+
+            return $app->redirect($app['url_generator']->generate('product_list'));
         })
             ->bind('product_delete')
             ->convert('id', function ($id) { return (int) $id; });

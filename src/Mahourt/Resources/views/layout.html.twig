@@ -1,9 +1,60 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="utf-8"/>
+
     <title>{% block title %}Mahourt{% endblock %}</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+
+{% block stylesheets %}
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" charset="utf-8" />
+    <link type="text/css" rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css" charset="utf-8" />
+    <style type="text/css">
+        @media (min-width: 979px) {
+            .container-fluid {
+                margin-top: 68px;
+            }
+
+            .navbar-inner {
+                padding: 5px;
+            }
+
+            .navbar-fixed-top {
+                margin-bottom: 18px;
+            }
+        }
+    </style>
+{% endblock %}
 </head>
 <body>
-    {% block content %}{% endblock %}
-    {% block javascript %}{% endblock %}
+
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+                <a class="brand" href="#">Mahourt</a>
+                <div class="nav-collapse collapse">
+                    <ul class="nav">
+                        <li>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        {% block content %}{% endblock %}
+    </div>
+    {% block javascripts %}{% endblock %}
 </body>
 </html>
