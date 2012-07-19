@@ -1,0 +1,52 @@
+{
+    "name": "benja-M-1/mahourt",
+    "description": "Simplistic stock manager.",
+    "authors": [
+        {
+            "name": "Benjamin Grandfond",
+            "email": "benjamin.grandfond@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:benja-M-1/nutwerk-orm-extension.git"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "flintstones/rest",
+                "version": "master",
+                "dist": {
+                    "url": "http://github.com/flintstones/Rest.zip",
+                    "type": "zip"
+                },
+                "source": {
+                    "url": "http://github.com/flintstones/Rest.git",
+                    "type": "git",
+                    "reference": "dev-master"
+                },
+                "autoload": {
+                    "psr-0": {
+                        "Flintstones": "src/"
+                    }
+                }
+            }
+        }
+    ],
+    "require": {
+        "silex/silex":                   "1.0.*",
+        "twig/twig":                     "dev-master",
+        "symfony/security":              "dev-master",
+        "monolog/monolog":               "dev-master",
+        "nutwerk/doctrine-orm-provider": "dev-master",
+        "symfony/console":               "dev-master",
+        "symfony/twig-bridge":           "dev-master"
+    },
+    "autoload":    {
+        "psr-0": {
+            "Mahourt": "src/"
+        }
+    }
+}
