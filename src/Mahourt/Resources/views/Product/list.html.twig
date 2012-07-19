@@ -1,0 +1,33 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <th>Nom</th>
+                <th>Quantité</th>
+                <th>Acitons</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product in products %}
+            <tr>
+                <td>{{ product.name }}</td>
+                <td>{{ product.quantity }}</td>
+                <td>
+                    <a href="{{ path('product_edit', { 'id': product.id }) }}"{{ product.quantity }}>Editer</a>
+                    <form action="{{ path('product_delete', { 'id': product.id }) }}" method="DELETE">
+                        <button type="submit">Supprimer</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <form action="{{ path('product_new') }}" method="post">
+        <input type="text" name="product[name]" />
+        <input type="text" name="product[quantity]" />
+        <button type="submit">Ajouter</button>
+    </form>
+{% endblock %}

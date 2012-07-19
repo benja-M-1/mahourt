@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <form action="{{ path('product_edit', { 'id': product.id }) }}" method="POST">
+        <input type="hidden" name="_method" value="PUT" />
+        <input type="text" name="product[name]" value="{{ product.name }}" />
+        <input type="text" name="product[quantity]" value="{{ product.quantity }}" />
+        <button type="submit">Enregistrer</button>
+        <a href="{{ path('product_list') }}">Retour à la liste</a>
+    </form>
+{% endblock %}
