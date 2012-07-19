@@ -15,7 +15,6 @@ use Silex\Application as BaseApplication;
 use Silex\Provider\MonologServiceProvider;
 use Silex\Provider\TwigServiceProvider;
 use Silex\Provider\UrlGeneratorServiceProvider;
-use Silex\Provider\SecurityServiceProvider;
 use Silex\Provider\DoctrineServiceProvider;
 use Nutwerk\Provider\DoctrineORMServiceProvider;
 
