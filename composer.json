@@ -12,27 +12,6 @@
         {
             "type": "vcs",
             "url": "git@github.com:benja-M-1/nutwerk-orm-extension.git"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "flintstones/rest",
-                "version": "master",
-                "dist": {
-                    "url": "http://github.com/flintstones/Rest.zip",
-                    "type": "zip"
-                },
-                "source": {
-                    "url": "http://github.com/flintstones/Rest.git",
-                    "type": "git",
-                    "reference": "dev-master"
-                },
-                "autoload": {
-                    "psr-0": {
-                        "Flintstones": "src/"
-                    }
-                }
-            }
         }
     ],
     "require": {
