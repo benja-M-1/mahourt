@@ -2,10 +2,22 @@
 
 {% block content %}
     <form action="{{ path('product_edit', { 'id': product.id }) }}" method="POST">
-        <input type="hidden" name="_method" value="PUT" />
-        <input type="text" name="product[name]" value="{{ product.name }}" />
-        <input type="text" name="product[quantity]" value="{{ product.quantity }}" />
-        <button type="submit">Enregistrer</button>
-        <a href="{{ path('product_list') }}">Retour à la liste</a>
+        <h2>Editer un produit</h2>
+        <div class="control-group">
+              <label class="control-label" for="product_name">Nom du produit</label>
+              <div class="controls">
+                  <input type="text" name="product[name]" id="product_name"/>
+              </div>
+        </div>
+        <div class="control-group">
+              <label class="control-label" for="product_quantity">Quantité</label>
+              <div class="controls">
+                  <input type="text" name="product[quantity]" id="product_quantity"/>
+              </div>
+        </div>
+        <div class="form-actions">
+            <input type="hidden" name="_method" value="PUT" />
+            <button class="btn btn-primary" type="submit">Enregistrer</button>
+            <a href="{{ path('product_list') }}">Retour à la liste</a>
     </form>
 {% endblock %}
