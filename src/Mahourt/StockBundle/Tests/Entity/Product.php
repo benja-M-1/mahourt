@@ -15,8 +15,6 @@ use Mahourt\StockBundle\Entity;
 class Product extends Test
 {
     /**
-     * Test basic setters and getters
-     * 
      * @dataProvider valuesProvider
      */
     public function testSetGet($name, $value)
