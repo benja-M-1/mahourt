@@ -8,7 +8,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 class StockController extends Controller
 {
     /**
-     * @Extra\Route("/")
+     * @Extra\Route("/", name="homepage", defaults={"current"="stock_list"})
      * @Extra\Template()
      */
     public function listAction()

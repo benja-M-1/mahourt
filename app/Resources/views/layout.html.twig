@@ -2,8 +2,59 @@
 
 {% block title %}Mahourt{% endblock %}
 
-{% block navbar %}{% endblock %}
+{% macro menu_item(name, label, path, current) %}
+    <li class="{% if current %} active{% endif %}">
+        <a{% if path %} href="{{ path }}"{% endif %}>{{ label|trans() }}</a>
+    </li>
+{% endmacro %}
+
+{% import _self as menu %}
+
+{% block navbar %}
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="{{ path('homepage') }}">Mahourt</a>
+
+        <div class="nav-collapse">
+            <ul class="nav">
+                {{ menu.menu_item('stock_list', 'Mes produits', path('homepage'), app.request.get('current') == 'stock_list') }}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_header %}{% endblock %}
 
 {% block footer %}
-<p>&copy; <a href="http://benjamingrandfond.fr" target="_blank">Benjamin Grandfond</a> {{ "now"|date("Y") }}</p>
+<p>&copy; {{ "now"|date("Y") }} - Developed by <a href="http://benjamingrandfond.fr" target="_blank">Benjamin
+    Grandfond</a></p>
 {% endblock %}
+
+{% block foot_script %}
+    {% javascripts
+        'http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-transition.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-modal.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-dropdown.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-scrollspy.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tab.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-tooltip.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-popover.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-alert.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-button.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-collapse.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-carousel.js'
+        '@MopaBootstrapBundle/Resources/bootstrap/js/bootstrap-typeahead.js'
+        '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-collection.js'
+        '@MopaBootstrapBundle/Resources/public/js/mopabootstrap-subnav.js'
+        '@MahourtStockBundle/Resources/public/js/mahourt.js'
+    %}
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock foot_script %}

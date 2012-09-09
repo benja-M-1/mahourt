@@ -1,9 +1,18 @@
 {% extends '::layout.html.twig' %}
 
 {% block content %}
-<ul>
+<ul class="unstyled" id="product-list">
     {% for product in products %}
-        <li><span class="badge badge-success">{{ product.quantity }}</span>{{ product.name }}</li>
+        <li><span class="badge {% if product.quantity > 1 %}badge-success{% else %}badge-important{% endif %}">{{ product.quantity }}</span>&nbsp;{{ product.name }}</li>
     {% endfor %}
 </ul>
 {% endblock %}
+
+{% block head_style %}
+{% stylesheets
+    '@MopaBootstrapBundle/Resources/public/less/mopabootstrapbundle.less'
+    '@MahourtStockBundle/Resources/public/less/mahourt.less'
+%}
+<link href="{{ asset_url }}" type="text/css" rel="stylesheet" media="screen" />
+{% endstylesheets %}
+{% endblock head_style %}

@@ -28,6 +28,7 @@ assetic:
     use_controller: false
     bundles:
         - MopaBootstrapBundle
+        - MahourtStockBundle
     #java: /usr/bin/java
     filters:
         cssrewrite: ~
