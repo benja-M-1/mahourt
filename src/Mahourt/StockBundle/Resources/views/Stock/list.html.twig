@@ -1,0 +1,9 @@
+{% extends '::layout.html.twig' %}
+
+{% block content %}
+<ul>
+    {% for product in products %}
+        <li><span class="badge badge-success">{{ product.quantity }}</span>{{ product.name }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

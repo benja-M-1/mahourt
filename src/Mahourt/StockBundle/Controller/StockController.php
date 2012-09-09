@@ -3,18 +3,20 @@
 namespace Mahourt\StockBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration as Extra;
 
-class DefaultController extends Controller
+class StockController extends Controller
 {
     /**
-     * @Route("/")
-     * @Template()
+     * @Extra\Route("/")
+     * @Extra\Template()
      */
-    public function stockAction()
+    public function listAction()
     {
+        $products = $this->getDoctrine()
+            ->getRepository('MahourtStockBundle:Product')
+            ->findAll();
 
-        return array();
+        return array('products' => $products);
     }
 }
