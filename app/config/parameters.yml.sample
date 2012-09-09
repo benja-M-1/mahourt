@@ -16,5 +16,5 @@ parameters:
 
     # assetic
     assetic_node:       /usr/bin/node
-    assetic_node_paths: %kernel.root_dir%/../node_modules
-    assetic_less:       %assetic_node_paths%/.bin/lessc
+    assetic_node_path:  %kernel.root_dir%/../node_modules
+    assetic_less:       %assetic_node_path%/.bin/lessc
