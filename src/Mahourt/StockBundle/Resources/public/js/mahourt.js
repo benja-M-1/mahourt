@@ -34,13 +34,13 @@ $(function () {
                 function (data) {
                     if (_.isEmpty(data) || (_.isArray(data) && data.length == 0)) {
                         if ($search.data('resized') !== true) {
-                            $search.animate({ width: $search.width() - $add.width() }, 'slow', function () { $add.show() });
+                            $search.animate({ width: $search.width() - $add.width() - 30 }, 'slow', function () { $add.show() });
                             $search.data('resized', true);
                         }
                     } else {
                         if ($search.data('resized') !== false) {
                             $add.hide();
-                            $search.animate({ width: $search.width() + $add.width() }, 'slow');
+                            $search.animate({ width: $search.width() + $add.width() + 30 }, 'slow');
                             $search.data('resized', false);
                         }
                     }
@@ -86,7 +86,7 @@ $(function () {
 
         if ($target.val() == "" && $search.data('resized') !== false) {
             $add.hide();
-            $search.animate({ width: $search.width() + $add.width() }, 'slow');
+            $search.animate({ width: $search.width() + $add.width() + 30 }, 'slow');
             $search.data('resized', false);
         }
     });
