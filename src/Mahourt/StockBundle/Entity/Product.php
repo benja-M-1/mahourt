@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @author Benjamin Grandfond <benjamin.grandfond@gmail.com>
  *
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Mahourt\StockBundle\Repository\ProductRepository")
  */
 class Product
 {
