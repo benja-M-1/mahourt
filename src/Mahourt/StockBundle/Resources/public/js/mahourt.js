@@ -9,9 +9,12 @@ $(function () {
     $add = $('<button/>', {
         'type': 'submit',
         'class': 'btn',
-        'text': $search.data('new-button-content')
+        'text': $search.data('new-button-content'),
+        "css": { marginLeft: '5px' }
     }).hide();
+
     $search.after($add);
+    $search.data('resized', false);
 
     $search.typeahead({
         matcher: function (item) {
@@ -30,7 +33,16 @@ $(function () {
                 { 'q': query },
                 function (data) {
                     if (_.isEmpty(data) || (_.isArray(data) && data.length == 0)) {
-                        $add.show();
+                        if ($search.data('resized') !== true) {
+                            $search.animate({ width: $search.width() - $add.width() }, 'slow', function () { $add.show() });
+                            $search.data('resized', true);
+                        }
+                    } else {
+                        if ($search.data('resized') !== false) {
+                            $add.hide();
+                            $search.animate({ width: $search.width() + $add.width() }, 'slow');
+                            $search.data('resized', false);
+                        }
                     }
                     return process(data);
                 },
@@ -68,4 +80,16 @@ $(function () {
             });
         }
     });
+
+    $search.bind('keyup', function (e) {
+        var $target = $(e.currentTarget);
+
+        if ($target.val() == "" && $search.data('resized') !== false) {
+            $add.hide();
+            $search.animate({ width: $search.width() + $add.width() }, 'slow');
+            $search.data('resized', false);
+        }
+    });
+
+    $search.focus();
 });
