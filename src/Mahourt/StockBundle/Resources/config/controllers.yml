@@ -1,0 +1,8 @@
+parameters:
+    mahourt.product_controller_service.class: Mahourt\StockBundle\Controller\ProductController
+
+services:
+    mahourt.product_controller_service:
+        class: %mahourt.product_controller_service.class%
+        calls:
+            - [setContainer, [@service_container]]
